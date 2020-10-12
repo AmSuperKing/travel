@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <swiper ref="mySwiper" :options="swiperOptions">
+    <swiper :options="swiperOptions">
       <!-- slides -->
       <swiper-slide v-for="item of swiperList" :key="item.id">
         <img class="swiper-img" :src="item.imgUrl">
@@ -22,7 +22,7 @@ export default {
         // 循环
         loop: true,
         // 每张播放时长3秒，自动播放
-        autoplay: 2000,
+        autoplay: 3000,
         // 滑动速度
         speed: 1000
       },
