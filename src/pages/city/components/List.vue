@@ -12,14 +12,17 @@
       <div class="area">
         <div class="title border-topbottom">热门城市</div>
         <div class="button-list">
+          <!-- 循环输出热门城市 -->
           <div class="button-wrapper" v-for="item of hot" :key="item.id">
             <div class="button">{{item.name}}</div>
           </div>
         </div>
       </div>
-      <div class="area" v-for="(item, key) of cities" :key="key">
+      <!-- 循环输出字母 -->
+      <div class="area" v-for="(item, key) of cities" :key="key" :ref="key">
         <div class="title border-topbottom">{{key}}</div>
         <div class="item-list">
+          <!-- 循环输出每个字母时循环输出每个拼音字母开头的城市 -->
           <div class="item border-bottom" v-for="innerItem of item" :key="innerItem.key">{{innerItem.name}}</div>
         </div>
       </div>
@@ -33,10 +36,24 @@ export default {
   name: 'CityList',
   props: {
     hot: Array,
-    cities: Object
+    cities: Object,
+    letter: String
   },
   mounted () {
     this.scroll = new BScroll(this.$refs.wrapper)
+  },
+  watch: {
+    letter () {
+      // console.log(this.letter)
+      // 使用BetterScroll提供的接口
+      if (this.letter) {
+        // 当this.letter不为空时调用此方法，可以让BetterScroll自动滚动到某个元素上
+        // this.$refs[this.letter]得到的是一个数组，不是标准的DOM元素
+        const element = this.$refs[this.letter][0]
+        // console.log(element)
+        this.scroll.scrollToElement(element) // 这个函数传入用到的必须是一个DOM元素或选择器
+      }
+    }
   }
 }
 </script>
