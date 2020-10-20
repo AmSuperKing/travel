@@ -5,7 +5,7 @@
         <div class="title border-topbottom">当前城市</div>
         <div class="button-list">
           <div class="button-wrapper">
-            <div class="button">三亚</div>
+            <div class="button">{{this.currentCity}}</div>
           </div>
         </div>
       </div>
@@ -13,7 +13,7 @@
         <div class="title border-topbottom">热门城市</div>
         <div class="button-list">
           <!-- 循环输出热门城市 -->
-          <div class="button-wrapper" v-for="item of hot" :key="item.id">
+          <div class="button-wrapper" v-for="item of hot" :key="item.id" @click="handleCityClick(item.name)">
             <div class="button">{{item.name}}</div>
           </div>
         </div>
@@ -23,7 +23,9 @@
         <div class="title border-topbottom">{{key}}</div>
         <div class="item-list">
           <!-- 循环输出每个字母时循环输出每个拼音字母开头的城市 -->
-          <div class="item border-bottom" v-for="innerItem of item" :key="innerItem.key">{{innerItem.name}}</div>
+          <div class="item border-bottom" v-for="innerItem of item" :key="innerItem.key" @click="handleCityClick(innerItem.name)">
+            {{innerItem.name}}
+          </div>
         </div>
       </div>
     </div>
@@ -32,6 +34,7 @@
 
 <script>
 import BScroll from 'better-scroll'
+import { mapState, mapMutations } from 'vuex'
 export default {
   name: 'CityList',
   props: {
@@ -39,8 +42,21 @@ export default {
     cities: Object,
     letter: String
   },
-  mounted () {
-    this.scroll = new BScroll(this.$refs.wrapper)
+  computed: {
+    ...mapState({
+      currentCity: 'city'
+    })
+  },
+  methods: {
+    ...mapMutations(['changeCity']),
+    handleCityClick (city) {
+      // alert(city)
+      // this.$store.dispatch('changeCity', city)
+      // 没有异步操作或不是批量数据操作，操作简单，直接调用commit,跳过dispatch
+      // this.$store.commit('changeCity', city)
+      this.changeCity(city)
+      this.$router.push('/') // 编程式导航
+    }
   },
   watch: {
     letter () {
@@ -54,6 +70,9 @@ export default {
         this.scroll.scrollToElement(element) // 这个函数传入用到的必须是一个DOM元素或选择器
       }
     }
+  },
+  mounted () {
+    this.scroll = new BScroll(this.$refs.wrapper)
   }
 }
 </script>

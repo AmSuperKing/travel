@@ -50,11 +50,12 @@ export default {
       width 100%
       height 0
       padding-bottom 1rem
+      text-align center
       .foot-more-list
         list-style-type none
-        margin 0 auto
-        padding .2rem .2rem 0 .2rem
+        padding-top .2rem
         overflow hidden
+        width 100%
         .flight
           color $bgColor
           .icon
@@ -65,9 +66,8 @@ export default {
         list-style none
         float left
         text-align center
-        margin 0
-        padding-left .3rem
-        width 1.3rem
+        margin 0 auto
+        width 25%
         height .5rem
         line-height .5rem
         position relative
