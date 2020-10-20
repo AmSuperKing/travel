@@ -65,6 +65,7 @@ export default {
       // this.$store.commit('changeCity', city)
       this.changeCity(city)
       this.$router.push('/') // 编程式导航
+      this.keyword = ''
     }
   },
   mounted () {

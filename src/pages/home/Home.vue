@@ -17,6 +17,7 @@ import HomeRecommend from './components/Recommend'
 import HomeWeekend from './components/Weekend'
 import HomeFooter from './components/Footer'
 import axios from 'axios'
+import { mapState } from 'vuex'
 export default {
   name: 'Home',
   components: {
@@ -29,15 +30,19 @@ export default {
   },
   data () {
     return {
+      lastCity: '',
       swiperList: [],
       iconList: [],
       recommendList: [],
       weekRecList: []
     }
   },
+  computed: {
+    ...mapState(['city'])
+  },
   methods: {
     getHomeInfo () {
-      axios.get('/api/index.json')
+      axios.get('/api/index.json?city=' + this.city)
         .then(this.getHomeInfoSucc)
     },
     getHomeInfoSucc (res) {
@@ -53,7 +58,20 @@ export default {
     }
   },
   mounted () {
+    // console.log('mounted')
+    this.lastCity = this.city
     this.getHomeInfo()
+  },
+  // 当使用keep-alive时组件会多出一个生命周期函数 activated
+  // 首次进入页面时mounted和activated都会被执行
+  // 切换页面再回来时，mounted将不再执行，而activated执行
+  // 页面重新显示时一定会执行activated
+  activated () {
+    // console.log('activated')
+    if (this.lastCity !== this.city) {
+      this.lastCity = this.city
+      this.getHomeInfo()
+    }
   }
 }
 </script>
