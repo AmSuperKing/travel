@@ -4,14 +4,14 @@
       <span class="iconfont rec-hot">&#xe62c;</span>热门推荐
     </div>
     <ul>
-      <li class="rec-item border-bottom" v-for="item of list" :key="item.id">
+      <router-link tag="li" class="rec-item border-bottom" v-for="item of list" :key="item.id" :to="'/detail/' + item.id">
         <img class="rec-item-img" :src="item.imgUrl" :alt="item.title">
         <div class="rec-item-info">
           <p class="rec-item-info-title">{{item.title}}</p>
           <p class="rec-item-info-desc">{{item.desc}}</p>
           <button class="rec-item-button">查看详情</button>
         </div>
-      </li>
+      </router-link>
     </ul>
   </div>
 </template>
