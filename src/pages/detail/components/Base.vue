@@ -3,14 +3,14 @@
     <div class="row">
       <div class="base-info-left">
         <div>
-          <span class="comment-score">5.0</span>
+          <span class="comment-score">{{this.baseInfo.numEvaluation}}</span>
           <span class="comment-text">分</span>
-          <span class="comment-desc">超赞</span>
+          <span class="comment-desc">{{this.baseInfo.textEvaluation}}</span>
           <span class="iconfont to-comment-icon">&#xe64a;</span>
         </div>
         <div>
-          <span class="total-comment-num">30920条评论</span>
-          <span class="total-strategy-num">50条攻略</span>
+          <span class="total-comment-num">{{this.baseInfo.totalComments}}条评论</span>
+          <span class="total-strategy-num">{{this.baseInfo.totalStrategy}}条攻略</span>
         </div>
       </div>
       <div class="base-info-right">
@@ -25,7 +25,7 @@
     </div>
     <div class="row base-info-loc">
       <div class="iconfont loc-icon">&#xe603;</div>
-      <p class="loc-text">海南省三亚市河东区三亚海南省三亚市荔枝沟宋城三亚千古情景区</p>
+      <p class="loc-text">{{this.baseInfo.loc}}</p>
       <span class="iconfont loc-to-icon">&#xe64a;</span>
     </div>
   </div>
@@ -33,7 +33,10 @@
 
 <script>
 export default {
-  name: 'BaseInfo'
+  name: 'BaseInfo',
+  props: {
+    baseInfo: Object
+  }
 }
 </script>
 

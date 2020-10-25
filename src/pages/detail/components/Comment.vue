@@ -2,31 +2,16 @@
   <div class="comment-card">
     <div class="comment border-bottom">用户评论</div>
     <div class="comment-list">
-      <div class="comment-list-item border-bottom">
+      <div class="comment-list-item border-bottom" v-for="(item, index) of commentList" :key="index">
         <div class="comment-star">
-          <span class="iconfont star-light">&#xe602;&#xe602;&#xe602;</span>
-          <span class="iconfont star-gray">&#xe602;&#xe602;</span>
-          <span class="comment-user-date">m*t &nbsp; 2020-01-21</span>
+          <span v-for="(star, order) of allStar[index]" :key="order">
+            <span class="iconfont" :style="star">&#xe602;</span>
+          </span>
+          <span class="comment-user-date">{{item.author}} &nbsp; {{item.date}}</span>
         </div>
         <div class="comment-content">
           <p class="comment-text">
-            傍晚临时决定去看演出的，从亚龙湾出发也就半小时左右到。
-            因为不清楚附近餐饮所以直接进景区解决了。里面的美食广场不便宜，不过种类多价格业还可以接受。
-            简单吃过晚饭后就随便溜达了下进剧场了。三亚千古情演出就内容而言没有特别出彩之处，简单的历史和传说再现，但舞台效果和演员确实不错。
-            演出现场不是不少垃圾留下的，希望国人素质越来越好吧。。。唯一遗憾就是没来得及欣赏景区，所以这280性价比比较低🤣建议最好用1-2小时体验一下穿越感呢。
-          </p>
-        </div>
-      </div>
-      <div class="comment-list-item border-bottom">
-        <div class="comment-star">
-          <span class="iconfont star-light">&#xe602;&#xe602;&#xe602;&#xe602;&#xe602;</span>
-          <span class="comment-user-date">妈*阳 &nbsp; 2019-05-23</span>
-        </div>
-        <div class="comment-content">
-          <p class="comment-text">
-            千古情景区不大，彩色动物园很小，动物很少，有几只土拨鼠超级可爱(๑• . •๑)最具备价值的便是演出吧！
-            参演了《大地震》，作为汶川大地震的亲历者，我是从头到尾含着泪😭千古情值得一看，场面很震撼！
-            景区内还有很多程府招亲～锅庄～快闪等表演活动，还是挺好玩的！景区有小吃街，倒是有点贵。整个预计三个小时合适！
+            {{item.content}}
           </p>
         </div>
       </div>
@@ -44,7 +29,46 @@
 
 <script>
 export default {
-  name: 'DeatilComment'
+  name: 'DeatilComment',
+  props: {
+    commentList: Array
+  },
+  data () {
+    return {
+      allStar: []
+    }
+  },
+  watch: {
+    commentList (newVal, oldVal) {
+      const len = newVal.length
+      for (var i = 0; i < len; i++) {
+        const num = newVal[i].lightStar
+        if (num > 0 && num < 5) {
+          var star0 = []
+          for (var j = 0; j < num; j++) {
+            star0.push({ color: '#ffb436' })
+          }
+          for (var k = num; k < 5; k++) {
+            star0.push({ color: '#eee' })
+          }
+          this.allStar.push(star0)
+        } else if (num >= 5) {
+          var star1 = []
+          for (var x = 0; x < num; x++) {
+            star1.push({ color: '#ffb436' })
+          }
+          this.allStar.push(star1)
+        } else {
+          var star2 = []
+          for (var y = 0; y < num; y++) {
+            star2.push({ color: '#eee' })
+          }
+          this.allStar.push(star2)
+        }
+      }
+      // console.log(this.allStar)
+    }
+  }
 }
 </script>
 
