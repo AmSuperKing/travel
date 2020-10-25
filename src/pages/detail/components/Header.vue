@@ -37,14 +37,14 @@ export default {
       }
     }
   },
-  activated () {
+  mounted () {
     window.addEventListener('scroll', this.handleScroll)
   },
   // 对activated定义的window全局事件解绑，不然其他可滚动页面也会被handleScroll影响
   // 不对全局事件及时进行解绑，将可能会导致大量Bug
   // 组件内部定义在元素上的事件作用在组件内部，不会对外部影响
   // 但对全局对象进行的事件绑定就会影响
-  deactivated () {
+  destroyed () {
     window.removeEventListener('scroll', this.handleScroll)
   }
 }

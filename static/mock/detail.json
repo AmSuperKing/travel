@@ -1,0 +1,54 @@
+{
+    "ret": true,
+    "data": {
+      "sightName": "三亚千古情",
+      "bannerImg": "http://img1.qunarzz.com/sight/p0/2006/cc/ccdbfaf89d7d56b4a3.img.jpg_350x240_210000f7.jpg",
+      "gallaryImgs": [
+        "http://img1.qunarzz.com/sight/p0/2006/cc/ccdbfaf89d7d56b4a3.img.jpg_350x240_210000f7.jpg", 
+        "http://img1.qunarzz.com/sight/p0/2006/42/421ef9e17c21e766a3.img.jpg_350x240_fe269737.jpg",
+        "http://img1.qunarzz.com/sight/p0/2006/96/9640e7a30226aa2aa3.img.jpg_350x240_fdeafdae.jpg",
+        "http://img1.qunarzz.com/sight/p0/2006/80/80513ba23ad1b7a3.img.jpg_350x240_22d5343b.jpg",
+        "http://img1.qunarzz.com/sight/p0/2006/47/474c15612d5fbdb8a3.img.jpg_350x240_bfbfa054.jpg",
+        "http://img1.qunarzz.com/sight/p0/2006/f7/f76de1fd2ffbfe4aa3.img.jpg_350x240_1fb0c4d0.jpg"
+      ],
+      "baseInfo": {
+        "numEvaluation": "5.0",
+        "textEvaluation": "超赞",
+        "totalComments": "30920",
+        "totalStrategy": "50",
+        "loc": "海南省三亚市河东区三亚海南省三亚市荔枝沟宋城三亚千古情景区"
+      },
+      "categoryList": [{
+        "title": "成人票",
+        "children": [{
+          "title": "成人三馆联票",
+          "children": [{
+            "title": "成人三馆联票 - sane连锁店销售"
+          }]
+        }, {
+          "title": "成人五馆联票"
+        }]
+        }, {
+          "title": "亲子票（1大1小）"
+        }, {
+          "title": "家庭票（2大1小）"
+        }, {
+          "title": "儿童票"
+        }
+      ],
+      "commentList": [{
+        "author": "m*t",
+        "lightStar": "4",
+        "date": "2020-01-21",
+        "content" : "傍晚临时决定去看演出的，从亚龙湾出发也就半小时左右到。因为不清楚附近餐饮所以直接进景区解决了。里面的美食广场不便宜，不过种类多价格业还可以接受。简单吃过晚饭后就随便溜达了下进剧场了。三亚千古情演出就内容而言没有特别出彩之处，简单的历史和传说再现，但舞台效果和演员确实不错。演出现场不是不少垃圾留下的，希望国人素质越来越好吧。。。唯一遗憾就是没来得及欣赏景区，所以这280性价比比较低🤣建议最好用1-2小时体验一下穿越感呢。"
+      }, {
+        "author": "妈*阳",
+        "date": "2019-05-23",
+        "lightStar": "5",
+        "content": "千古情景区不大，彩色动物园很小，动物很少，有几只土拨鼠超级可爱(๑• . •๑)最具备价值的便是演出吧！参演了《大地震》，作为汶川大地震的亲历者，我是从头到尾含着泪😭千古情值得一看，场面很震撼！景区内还有很多程府招亲～锅庄～快闪等表演活动，还是挺好玩的！景区有小吃街，倒是有点贵。整个预计三个小时合适！"
+
+      }
+      ]
+    }
+  }
+  
