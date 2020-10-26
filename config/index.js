@@ -14,9 +14,9 @@ module.exports = {
     // 修改官方提供的proxyTable配置项，修改代理，将api路径的请求代理转发到本地服务器的端口路径上
     proxyTable: {
       '/api': {
-        target: 'http://localhost:8080',
+        target: 'http://localhost',
         pathRewrite: {
-          '^/api': '/static/mock'
+          '^/api': '/api'
         }
       }
     },
